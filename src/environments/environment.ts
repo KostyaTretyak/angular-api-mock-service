@@ -6,7 +6,7 @@ import { Environment } from 'src/app/types';
 
 export const environment: Environment = {
   production: false,
-  frontendHost: 'exmple.com',
+  frontendHost: 'https://stackblitz.com/github/KostyaTretyak/angular-example-simple-service',
   apiMockRun: true,
   apiMockHttpDelay: 1000
 };
