@@ -8,7 +8,7 @@ import { ContenteditableModule } from '@ng-stack/contenteditable';
 
 import { AppComponent } from './app.component';
 import { SimpleService } from './simple.service';
-import { environment } from 'src/environments/environment';
+import { environment } from '../environments/environment';
 import { SimpleEditComponent } from './simple-edit/simple-edit.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SimpleComponent } from './simple/simple.component';
