@@ -972,10 +972,10 @@
     merge-source-map "^1.1.0"
     schema-utils "^2.6.4"
 
-"@ng-stack/api-mock@^0.0.0-beta.4":
-  version "0.0.0-beta.4"
-  resolved "https://registry.yarnpkg.com/@ng-stack/api-mock/-/api-mock-0.0.0-beta.4.tgz#8abb0f50d37cccf41976344de083335a1a09e2bf"
-  integrity sha512-W+/DsdAPb9XTPEmkle6K2qeUoeSsnpOxT1e2qbPM/7JH23GlGWTrY9312rGe5XdFMPhlEtWtpkcqaw5MMvzhgg==
+"@ng-stack/api-mock@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@ng-stack/api-mock/-/api-mock-1.0.0.tgz#743c6a77ea5ac1f1f9af2091579dc1d94f9acc9a"
+  integrity sha512-ZKA8uu70TgslZMGbXlxFoHlPQOGebDYyoIKrM9TmllvNK3g3/+VDSa4lOuNyxyceZH4askP5+wB333x4MF7uEw==
 
 "@ng-stack/contenteditable@^1.0.1":
   version "1.0.1"
