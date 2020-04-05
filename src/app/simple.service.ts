@@ -1,9 +1,5 @@
 import { ApiMockService, ApiMockDataCallback, ApiMockRootRoute } from '@ng-stack/api-mock';
-
-interface Model {
-  id: number;
-  name: string;
-}
+import { SimpleModel } from './simple.model';
 
 export class SimpleService implements ApiMockService {
   getRoutes(): ApiMockRootRoute[] {
@@ -18,7 +14,7 @@ export class SimpleService implements ApiMockService {
   /**
    * The callback called when URL is like `/simple` or `/simple/3`.
    */
-  private getDataCallback(): ApiMockDataCallback<Model[]> {
+  private getDataCallback(): ApiMockDataCallback<SimpleModel[]> {
     return ({ httpMethod, items }) => {
       if (httpMethod == 'GET') {
         return [
