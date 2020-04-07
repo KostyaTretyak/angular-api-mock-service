@@ -2,26 +2,26 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { BehaviorSubject } from 'rxjs';
-
 import { FormGroup, FormBuilder, Validators } from '@ng-stack/forms';
-import { SimpleModel } from '../simple.model';
+
+import { Hero } from '../hero';
 
 @Component({
-  templateUrl: './simple.component.html',
-  styleUrls: ['./simple.component.css']
+  templateUrl: './heroes.component.html',
+  styleUrls: ['./heroes.component.css']
 })
-export class SimpleComponent implements OnInit {
-  private bsSimples = new BehaviorSubject<SimpleModel>(null);
+export class HeroesComponent implements OnInit {
+  private bsSimples = new BehaviorSubject<Hero>(null);
   isLoading: boolean;
   isAdding: boolean;
   simples$ = this.bsSimples.asObservable();
-  form: FormGroup<SimpleModel>;
+  form: FormGroup<Hero>;
   message: string;
 
   constructor(private httpClient: HttpClient, private formBuilder: FormBuilder) {}
 
   ngOnInit() {
-    this.form = this.formBuilder.group<SimpleModel>({
+    this.form = this.formBuilder.group<Hero>({
       id: [undefined],
       name: [null, Validators.required],
     });
@@ -34,7 +34,7 @@ export class SimpleComponent implements OnInit {
     if (!this.isLoading) {
       this.message = 'getting...';
     }
-    this.httpClient.get<SimpleModel>(`/simple`).subscribe(result => {
+    this.httpClient.get<Hero>(`/api/heroes`).subscribe(result => {
       this.message = '';
       this.isLoading = false;
       this.bsSimples.next(result);
@@ -49,7 +49,7 @@ export class SimpleComponent implements OnInit {
     }
     const id = this.form.get('id').value || undefined;
     this.form.get('id').setValue(id);
-    this.httpClient.post<SimpleModel>(`/simple`, this.form.value).subscribe(() => {
+    this.httpClient.post<Hero>(`/api/heroes`, this.form.value).subscribe(() => {
       this.message = 'saved!';
       this.isAdding = false;
       this.form.reset();
@@ -59,7 +59,7 @@ export class SimpleComponent implements OnInit {
 
   delete(id: number) {
     this.message = 'deleting...';
-    this.httpClient.delete(`/simple/${id}`).subscribe(() => this.getSimples());
+    this.httpClient.delete(`/api/heroes/${id}`).subscribe(() => this.getSimples());
   }
 
   private showFormErrors() {
@@ -72,6 +72,6 @@ export class SimpleComponent implements OnInit {
   getError404(id?: number) {
     this.bsSimples.next(undefined);
 
-    this.httpClient.get<SimpleModel>(`/non-existing-route`).subscribe();
+    this.httpClient.get<Hero>(`/non-existing-route`).subscribe();
   }
 }

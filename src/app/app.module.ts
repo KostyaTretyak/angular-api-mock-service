@@ -9,17 +9,19 @@ import { ContenteditableModule } from '@ng-stack/contenteditable';
 import { AppComponent } from './app.component';
 import { SimpleService } from './simple.service';
 import { environment } from '../environments/environment';
-import { SimpleEditComponent } from './simple-edit/simple-edit.component';
+import { HeroEditComponent } from './hero-edit/hero-edit.component';
 import { AppRoutingModule } from './app-routing.module';
-import { SimpleComponent } from './simple/simple.component';
+import { HeroesComponent } from './heroes/heroes.component';
+import { LoginComponent } from './login/login.component';
 
-const apiMockModule = ApiMockModule.forRoot(SimpleService, { delay: environment.apiMockHttpDelay });
+const apiMockModule = ApiMockModule.forRoot(SimpleService, { delay: environment.apiMockHttpDelay, postNoAction: true });
 
 @NgModule({
   declarations: [
     AppComponent,
-    SimpleComponent,
-    SimpleEditComponent
+    LoginComponent,
+    HeroesComponent,
+    HeroEditComponent
   ],
   imports: [
     BrowserModule,

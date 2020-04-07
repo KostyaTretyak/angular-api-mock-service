@@ -4,14 +4,13 @@ import { ActivatedRoute } from '@angular/router';
 
 import { FormGroup, FormBuilder } from '@ng-stack/forms';
 
-import { SimpleModel } from '../simple.model';
+import { Hero } from '../hero';
 
 @Component({
-  templateUrl: './simple-edit.component.html',
-  styleUrls: ['./simple-edit.component.css'],
+  templateUrl: './hero-edit.component.html'
 })
-export class SimpleEditComponent implements OnInit {
-  form: FormGroup<SimpleModel>;
+export class HeroEditComponent implements OnInit {
+  form: FormGroup<Hero>;
   message: string;
   get id() {
     return this.form.get('id').value;
@@ -28,7 +27,7 @@ export class SimpleEditComponent implements OnInit {
     this.form = this.formBuilder.group({ id: 0, name: '' });
 
     const id: number = this.activatedRoute.snapshot.params.id;
-    this.httpClient.get<SimpleModel[]>(`/simple/${id}`).subscribe(result => {
+    this.httpClient.get<Hero[]>(`/api/heroes/${id}`).subscribe(result => {
       this.message = '';
       this.form = this.formBuilder.group(result[0]);
     });
@@ -37,7 +36,7 @@ export class SimpleEditComponent implements OnInit {
   save() {
     const id = this.form.get('id').value;
     this.message = 'saving...';
-    this.httpClient.patch<SimpleModel>(`/simple/${id}`, this.form.value).subscribe(() => {
+    this.httpClient.patch<Hero>(`/api/heroes/${id}`, this.form.value).subscribe(() => {
       this.message = 'saved!';
     });
   }

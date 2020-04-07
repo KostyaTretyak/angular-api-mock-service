@@ -1,18 +1,22 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { SimpleEditComponent } from './simple-edit/simple-edit.component';
-import { SimpleComponent } from './simple/simple.component';
+import { HeroEditComponent } from './hero-edit/hero-edit.component';
+import { HeroesComponent } from './heroes/heroes.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   {
-    path: '',
-    pathMatch: 'full',
-    component: SimpleComponent,
+    path: 'login',
+    component: LoginComponent,
   },
   {
-    path: 'edit/:id',
-    component: SimpleEditComponent,
+    path: 'heroes',
+    component: HeroesComponent,
+  },
+  {
+    path: 'heroes/edit/:id',
+    component: HeroEditComponent,
   }
 ];
 

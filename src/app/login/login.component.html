@@ -1,0 +1,31 @@
+<h2>Example usage postNoAction option</h2>
+<p>
+  If your route path does not have a primary id and not have <code>dataCallback</code>,
+  you can use <code>postNoAction</code>:
+</p>
+<pre>
+  <code>
+ApiMockModule.forRoot(SomeService, {{ '{' }} postNoAction: true {{ '}' }})
+  </code>
+</pre>
+
+<p>
+  This can be used, for example, for authorization when you do not need to insert any elements into a specific REST resource.
+</p>
+
+<div [formGroup]="form">
+  <table>
+    <tr>
+      <td>login:</td>
+      <td><input formControlName="login"></td>
+    </tr>
+    <tr>
+      <td>password:</td>
+      <td><input formControlName="password" type="password"></td>
+    </tr>
+  </table>
+  <div>
+    <button (click)="login()">OK</button>
+    <span style="margin-left: 5px; font-style: italic;">{{ message }}</span>
+  </div>
+</div>
