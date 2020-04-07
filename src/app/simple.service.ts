@@ -16,7 +16,7 @@ export class SimpleService implements ApiMockService {
   }
 
   /**
-   * The callback called when URL is like `/simple` or `/simple/3`.
+   * The callback called when URL is like `api/heroes` or `api/heroes/3`.
    */
   private getDataCallback(): ApiMockDataCallback<Hero[]> {
     return ({ httpMethod, items }) => {
