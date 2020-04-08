@@ -3,10 +3,16 @@ import { ApiMockService, ApiMockDataCallback, ApiMockRootRoute } from '@ng-stack
 import { Hero } from './hero';
 
 export class SimpleService implements ApiMockService {
+  /**
+   * Here, as example, returned array contains two routes:
+   * - first route without `dataCallback`
+   * - the second route with `dataCallback`
+   */
   getRoutes(): ApiMockRootRoute[] {
     return [
       {
-        path: 'api/login'
+        path: 'api/login',
+        responseCallback: () => ({ message: 'OK' })
       },
       {
         path: 'api/heroes/:id',

@@ -14,7 +14,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HeroesComponent } from './heroes/heroes.component';
 import { LoginComponent } from './login/login.component';
 
-const apiMockModule = ApiMockModule.forRoot(SimpleService, { delay: environment.apiMockHttpDelay, postNoAction: true });
+const apiMockModule = ApiMockModule.forRoot(SimpleService, { delay: environment.apiMockHttpDelay });
 
 @NgModule({
   declarations: [
