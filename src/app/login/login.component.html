@@ -1,17 +1,18 @@
-<h2>Example usage postNoAction option</h2>
+<h2>Example usage path only</h2>
 <p>
-  If your route path does not have a primary id and not have <code>dataCallback</code>,
-  you can use <code>postNoAction</code>:
+  If your route path does not have a primary key and not have <code>dataCallback</code>,
+  this can be used, for example, for authorization when you do not need to insert any elements into a specific REST
+  resource:
 </p>
 <pre>
-  <code>
-ApiMockModule.forRoot(SomeService, {{ '{' }} postNoAction: true {{ '}' }})
-  </code>
+  <code><![CDATA[
+class SomeService implements ApiMockService {
+  getRoutes(): ApiMockRootRoute[] {
+    return [{ path: 'api/login' }];
+  }
+}
+]]></code>
 </pre>
-
-<p>
-  This can be used, for example, for authorization when you do not need to insert any elements into a specific REST resource.
-</p>
 
 <div [formGroup]="form">
   <table>
