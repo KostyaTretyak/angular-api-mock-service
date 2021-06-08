@@ -1,4 +1,5 @@
 {
+  "private": true,
   "name": "example-simple-service",
   "version": "0.0.0",
   "scripts": {
@@ -9,7 +10,10 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
-  "private": true,
+  "resolutions": {
+    "css-what": "^5.0.1",
+    "ws": "^7.4.6"
+  },
   "dependencies": {
     "@angular/animations": "~11.2.6",
     "@angular/common": "~11.2.6",
